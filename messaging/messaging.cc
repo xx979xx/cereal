@@ -2,9 +2,11 @@
 #include "impl_zmq.hpp"
 #include "impl_msgq.hpp"
 
+bool use_msgq = true;
+
 Context * Context::create(){
   Context * c;
-  if (std::getenv("MSGQ")){
+  if (use_msgq || std::getenv("MSGQ")){
     c = new MSGQContext();
   } else {
     c = new ZMQContext();
@@ -14,7 +16,7 @@ Context * Context::create(){
 
 SubSocket * SubSocket::create(){
   SubSocket * s;
-  if (std::getenv("MSGQ")){
+  if (use_msgq || std::getenv("MSGQ")){
     s = new MSGQSubSocket();
   } else {
     s = new ZMQSubSocket();
@@ -60,7 +62,7 @@ SubSocket * SubSocket::create(Context * context, std::string endpoint, std::stri
 
 PubSocket * PubSocket::create(){
   PubSocket * s;
-  if (std::getenv("MSGQ")){
+  if (use_msgq || std::getenv("MSGQ")){
     s = new MSGQPubSocket();
   } else {
     s = new ZMQPubSocket();
@@ -82,7 +84,7 @@ PubSocket * PubSocket::create(Context * context, std::string endpoint){
 
 Poller * Poller::create(){
   Poller * p;
-  if (std::getenv("MSGQ")){
+  if (use_msgq || std::getenv("MSGQ")){
     p = new MSGQPoller();
   } else {
     p = new ZMQPoller();
