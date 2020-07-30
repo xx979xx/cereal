@@ -112,11 +112,9 @@ struct CarEvent @0x9b1657f34caf3ad3 {
     wrongCruiseMode @87;
     neosUpdateRequired @88;
     modeldLagging @89;
-    preventLaneChange @90;
-    leftBlindspot @91;
-    rightBlindspot @92;
-    turningIndicatorOn @93;
-    lkasButtonOff @94;
+    turningIndicatorOn @90;
+    lkasButtonOff @91;
+    autoLaneChange @92;
   }
 }
 
