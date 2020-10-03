@@ -113,9 +113,9 @@ struct CarEvent @0x9b1657f34caf3ad3 {
     neosUpdateRequired @88;
     modeldLagging @89;
     deviceFalling @90;
-    lkasButtonOff @91;
-    autoLaneChange @92;
-    turningIndicatorOn @93;
+    turningIndicatorOn @91;
+    lkasButtonOff @92;
+    autoLaneChange @93;
   }
 }
 
@@ -175,7 +175,7 @@ struct CarState {
 
   # clutch (manual transmission only)
   clutchPressed @28 :Bool;
-
+  
   # which packets this state came from
   canMonoTimes @12: List(UInt64);
 
@@ -412,8 +412,7 @@ struct CarParams {
   mdpsBus @51: Int8;
   sasBus @52: Int8;
   sccBus @53: Int8;
-  autoLcaEnabled @54: Bool;
-  spasEnabled @55: Bool;
+  spasEnabled @54: Bool;
 
   struct LateralParams {
     torqueBP @0 :List(Int32);
